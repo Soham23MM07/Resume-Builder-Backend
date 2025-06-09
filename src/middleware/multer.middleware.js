@@ -1,8 +1,12 @@
 import multer from "multer";
 import fs from "fs";
+import { fileURLToPath } from "url";
 import path from "path";
 
-const uploadDir = "./public/temp";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const uploadDir = path.resolve(__dirname, "public", "temp");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
