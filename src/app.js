@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://resume-builder-frontend-rosy.vercel.app",
+    origin: "https://resume-builder-frontend-tawny.vercel.app/",
     credentials: true,
   })
 );
