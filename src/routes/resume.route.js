@@ -23,7 +23,7 @@ router.post(
       name: "avatar",
       maxCount: 1,
     },
-  ]),
+  ]), 
   uploadImage
 );
 export default router;

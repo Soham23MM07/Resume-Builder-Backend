@@ -1,8 +1,5 @@
 import { Resume } from "../models/model.js";
-import {
-  deletefromcloudniary,
-  uploadtocloudinary,
-} from "../utils/cloudinary.js";
+import { uploadBufferToCloudinary } from "../utils/cloudinary.js";
 
 const getUserResumes = async (req, res) => {
   try {
@@ -110,17 +107,22 @@ const createResume = async (req, res) => {
 
 const uploadImage = async (req, res) => {
   try {
-    const avatar = req.files.avatar[0].path;
-    console.log("Request", avatar);
+    const file = req.files?.avatar?.[0];
+    if (!file) {
+      return res.status(400).json({ error: "No image uploaded" });
+    }
 
-    const image = await uploadtocloudinary(avatar);
+    const result = await uploadBufferToCloudinary(
+      file.buffer,
+      file.originalname
+    );
 
-    console.log("Image", image);
+    console.log("Result", result.url);
 
-    res.status(201).json({ data: image });
+    return res.status(200).json({ imageUrl: result.url });
   } catch (error) {
-    await deletefromcloudniary(avatar);
-    res.status(400).json({ error: error.message });
+    console.error("Image upload failed:", error.message);
+    return res.status(500).json({ error: "Failed to upload image" });
   }
 };
 
