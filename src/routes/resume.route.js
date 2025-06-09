@@ -10,6 +10,7 @@ import {
   deleteResume,
   uploadImage,
 } from "../controller/resume.controller.js";
+
 router.get("/resume", ClerkExpressWithAuth(), getUserResumes);
 router.post("/resume", ClerkExpressWithAuth(), createResume);
 router.get("/resume/:id", ClerkExpressWithAuth(), getResumeById);
@@ -23,7 +24,7 @@ router.post(
       name: "avatar",
       maxCount: 1,
     },
-  ]), 
+  ]),
   uploadImage
 );
 export default router;

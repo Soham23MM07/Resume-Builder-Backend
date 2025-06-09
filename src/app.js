@@ -6,7 +6,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:
+      "https://resume-builder-backend-agqist1r7-soham-ghags-projects.vercel.app",
     credentials: true,
   })
 );
