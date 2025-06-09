@@ -15,4 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", resumeRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Resume Builder Backend is running");
+});
+
+app.get("/favicon.ico", (req, res) => res.status(204).end());
+
 export default app;
