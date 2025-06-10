@@ -3,10 +3,13 @@ import resumeRoutes from "./routes/resume.route.js";
 import cors from "cors";
 
 const app = express();
-
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "http://localhost:5173",
+      "https://resume-builder-frontend.vercel.app",
+      "https://resume-builder-frontend-brown.vercel.app/",
+    ],
     credentials: true,
   })
 );
