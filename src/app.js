@@ -7,8 +7,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://resume-builder-frontend.vercel.app",
-      "https://resume-builder-frontend-brown.vercel.app/",
+      "https://full-stack-resume-builder.netlify.app/",
     ],
     credentials: true,
   })
