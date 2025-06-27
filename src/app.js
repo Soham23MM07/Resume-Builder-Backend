@@ -3,9 +3,11 @@ import resumeRoutes from "./routes/resume.route.js";
 import cors from "cors";
 
 const app = express();
+
+// ✅ Corrected CORS setup
 app.use(
   cors({
-    origin: ["https://full-stack-resume-builder.netlify.app/"],
+    origin: "https://full-stack-resume-builder.netlify.app",
     credentials: true,
   })
 );
