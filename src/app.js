@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 app.use(
   cors({
-    origin: ["https://full-stack-resumebuilder.netlify.app"],
+    origin: ["https://full-stack-resume-builder.netlify.app/"],
     credentials: true,
   })
 );
